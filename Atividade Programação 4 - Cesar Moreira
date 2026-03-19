@@ -1,0 +1,45 @@
+# Atividade – Prompt Mestre em Programação de Computadores
+ 
+## Tema: Números Binários
+ 
+### Prompt Mestre Inicial
+"Escreva um programa em Python que calcule a soma dos números pares de 1 a 100 e exiba o resultado em formato binário."
+ 
+### Variação 1
+"Escreva o programa em Python e explique passo a passo como funciona."
+**Resposta do LLM:** 
+
+soma = 0
+for numero in range(1, 101):
+    if numero % 2 == 0:
+        soma += numero
+binario = bin(soma)
+print("Soma em decimal:", soma)
+print("Soma em binário:", binario)
+
+### Variação 2
+"Otimize o programa em Python usando compreensão de listas."
+**Resposta do LLM:**
+
+soma = sum([n for n in range(1, 101) if n % 2 == 0])
+print("Soma em decimal:", soma)
+print("Soma em binário:", bin(soma))
+
+### Variação 3
+"Explique o programa em linguagem simples, como se fosse para um iniciante."
+**Resposta do LLM:** 
+
+Pense que o programa faz duas coisas:
+Primeiro, ele soma todos os números pares entre 1 e 100.
+Depois, ele transforma esse resultado em número binário.
+Número binário é uma forma diferente de escrever números, usando só 0 e 1.
+Por exemplo:
+10 em decimal = 1010 em binário
+Então o programa:
+Soma os números pares
+Mostra o resultado normal (decimal)
+Mostra o mesmo número em binário
+
+### Reflexão
+(Análise do estudante sobre os aprendizados e percepções.)
+Neste exercício, aprendi não só a trabalhar com estruturas de repetição e condições, mas também como converter números para o sistema binário em Python. Percebi que a função bin() facilita muito esse processo. Além disso, entendi como otimizar códigos usando list comprehension e como explicar conceitos técnicos de forma simples.
