@@ -1,0 +1,23 @@
+Engenharia de Prompt - Fundamentos
+🔹 Comparação Prática
+Prompt Genérico
+
+Pergunta:
+O que é Machine Learning?
+
+Resposta:
+Machine Learning é uma área da inteligência artificial que permite que sistemas aprendam a partir de dados e melhorem seu desempenho sem serem programados explicitamente para cada tarefa.
+
+Prompt Estruturado
+
+Prompt:
+Atue como um professor. Explique Machine Learning para um iniciante, usando uma analogia com esportes, em 2 parágrafos.
+
+Resposta:
+Machine Learning pode ser comparado ao treinamento de um atleta. Assim como um jogador melhora seu desempenho ao praticar repetidamente e aprender com erros, um sistema de Machine Learning aprende analisando dados e ajustando seus “erros” ao longo do tempo. Quanto mais dados e treino ele recebe, melhor ele fica na tarefa.
+
+Por exemplo, um jogador de futebol aprende a acertar o gol observando suas tentativas anteriores. Da mesma forma, um algoritmo aprende padrões — como identificar um e-mail como spam — analisando exemplos passados e melhorando suas decisões com base nesses aprendizados.
+
+🔹 Análise Crítica
+
+A resposta do prompt estruturado foi mais útil, pois trouxe uma explicação mais detalhada e fácil de entender, utilizando uma analogia prática. A estrutura com papel, objetivo, contexto e formato reduziu a ambiguidade ao deixar claro como a resposta deveria ser construída, resultando em um conteúdo mais completo e didático.
