@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Gestão - Aula 10</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar de Navegação -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>📊 GestPro</h2>
+                <p>Sistema de Gestão</p>
+            </div>
+            <nav class="menu">
+                <button class="menu-item active" data-section="dashboard">
+                    <span class="icon">📈</span> Dashboard
+                </button>
+                <button class="menu-item" data-section="estoque">
+                    <span class="icon">📦</span> Estoque
+                </button>
+                <button class="menu-item" data-section="vendas">
+                    <span class="icon">💰</span> Vendas
+                </button>
+                <button class="menu-item" data-section="entregas">
+                    <span class="icon">🚚</span> Entregas
+                </button>
+                <button class="menu-item" data-section="clientes">
+                    <span class="icon">👥</span> Clientes
+                </button>
+                <button class="menu-item" data-section="funcionarios">
+                    <span class="icon">👤</span> Funcionários
+                </button>
+                <button class="menu-item" data-section="pronta-entrega">
+                    <span class="icon">⚡</span> Pronta Entrega
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <header class="header">
+                <h1 id="section-title">Dashboard</h1>
+                <div class="user-info">
+                    <span>👤 Admin</span>
+                    <span id="data-hora"></span>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">📦</div>
+                        <div class="metric-content">
+                            <h3>Estoque Total</h3>
+                            <p class="metric-value">1.250</p>
+                            <p class="metric-label">unidades</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">💰</div>
+                        <div class="metric-content">
+                            <h3>Vendas (Mês)</h3>
+                            <p class="metric-value">452</p>
+                            <p class="metric-label">produtos vendidos</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">👥</div>
+                        <div class="metric-content">
+                            <h3>Clientes</h3>
+                            <p class="metric-value">328</p>
+                            <p class="metric-label">clientes ativos</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">⚡</div>
+                        <div class="metric-content">
+                            <h3>Pronta Entrega</h3>
+                            <p class="metric-value">87</p>
+                            <p class="metric-label">produtos prontos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráfico de Vendas -->
+                <div class="chart-container">
+                    <h2>Vendas Mensais</h2>
+                    <canvas id="salesChart"></canvas>
+                </div>
+
+                <!-- Resumo Rápido -->
+                <div class="quick-summary">
+                    <div class="summary-card">
+                        <h3>🚚 Entregas Hoje</h3>
+                        <p class="summary-value">12</p>
+                        <button class="btn-small">Ver Detalhes</button>
+                    </div>
+                    <div class="summary-card">
+                        <h3>⚠️ Estoque Baixo</h3>
+                        <p class="summary-value">5</p>
+                        <button class="btn-small">Ver Produtos</button>
+                    </div>
+                    <div class="summary-card">
+                        <h3>👥 Clientes Novos</h3>
+                        <p class="summary-value">18</p>
+                        <button class="btn-small">Ver Lista</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Estoque Section -->
+            <section id="estoque" class="content-section">
+                <div class="section-header">
+                    <h2>Gestão de Estoque</h2>
+                    <button class="btn-primary">+ Novo Produto</button>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th>Mínimo</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Notebook Dell</td>
+                            <td>45</td>
+                            <td>10</td>
+                            <td><span class="status-badge green">Em Estoque</span></td>
+                            <td><button class="btn-action">Editar</button></td>
+                        </tr>
+                        <tr>
+                            <td>Mouse Logitech</td>
+                            <td>8</td>
+                            <td>15</td>
+                            <td><span class="status-badge yellow">Baixo</span></td>
+                            <td><button class="btn-action">Editar</button></td>
+                        </tr>
+                        <tr>
+                            <td>Teclado Mecânico</td>
+                            <td>120</td>
+                            <td>20</td>
+                            <td><span class="status-badge green">Em Estoque</span></td>
+                            <td><button class="btn-action">Editar</button></td>
+                        </tr>
+                        <tr>
+                            <td>Monitor LG 24"</td>
+                            <td>2</td>
+                            <td>5</td>
+                            <td><span class="status-badge red">Crítico</span></td>
+                            <td><button class="btn-action">Editar</button></td>
+                        </tr>
+                        <tr>
+                            <td>Webcam HD</td>
+                            <td>35</td>
+                            <td>10</td>
+                            <td><span class="status-badge green">Em Estoque</span></td>
+                            <td><button class="btn-action">Editar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Vendas Section -->
+            <section id="vendas" class="content-section">
+                <div class="section-header">
+                    <h2>Histórico de Vendas</h2>
+                    <button class="btn-primary">+ Nova Venda</button>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th>Valor</th>
+                            <th>Data</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>João Silva</td>
+                            <td>Notebook Dell</td>
+                            <td>2</td>
+                            <td>R$ 5.000,00</td>
+                            <td>19/05/2026</td>
+                            <td><span class="status-badge green">Concluída</span></td>
+                        </tr>
+                        <tr>
+                            <td>Maria Costa</td>
+                            <td>Mouse Logitech</td>
+                            <td>5</td>
+                            <td>R$ 350,00</td>
+                            <td>18/05/2026</td>
+                            <td><span class="status-badge green">Concluída</span></td>
+                        </tr>
+                        <tr>
+                            <td>Pedro Santos</td>
+                            <td>Teclado Mecânico</td>
+                            <td>1</td>
+                            <td>R$ 450,00</td>
+                            <td>19/05/2026</td>
+                            <td><span class="status-badge blue">Pendente</span></td>
+                        </tr>
+                        <tr>
+                            <td>Ana Oliveira</td>
+                            <td>Monitor LG 24"</td>
+                            <td>3</td>
+                            <td>R$ 2.100,00</td>
+                            <td>17/05/2026</td>
+                            <td><span class="status-badge green">Concluída</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Entregas Section -->
+            <section id="entregas" class="content-section">
+                <div class="section-header">
+                    <h2>Gerenciamento de Entregas</h2>
+                    <button class="btn-primary">+ Nova Entrega</button>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Produto</th>
+                            <th>Localidade</th>
+                            <th>Funcionário</th>
+                            <th>Data Entrega</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>João Silva</td>
+                            <td>Notebook Dell</td>
+                            <td>São Paulo - SP</td>
+                            <td>Carlos Oliveira ✅</td>
+                            <td>20/05/2026</td>
+                            <td><span class="status-badge blue">Agendada</span></td>
+                        </tr>
+                        <tr>
+                            <td>Maria Costa</td>
+                            <td>Mouse Logitech</td>
+                            <td>Rio de Janeiro - RJ</td>
+                            <td>Felipe Souza ✅</td>
+                            <td>19/05/2026</td>
+                            <td><span class="status-badge green">Em Rota</span></td>
+                        </tr>
+                        <tr>
+                            <td>Pedro Santos</td>
+                            <td>Teclado Mecânico</td>
+                            <td>Belo Horizonte - MG</td>
+                            <td>Ricardo Costa ✅</td>
+                            <td>21/05/2026</td>
+                            <td><span class="status-badge blue">Agendada</span></td>
+                        </tr>
+                        <tr>
+                            <td>Ana Oliveira</td>
+                            <td>Monitor LG 24"</td>
+                            <td>Brasília - DF</td>
+                            <td>João Pereira ✅</td>
+                            <td>22/05/2026</td>
+                            <td><span class="status-badge blue">Agendada</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Clientes Section -->
+            <section id="clientes" class="content-section">
+                <div class="section-header">
+                    <h2>Base de Clientes</h2>
+                    <button class="btn-primary">+ Novo Cliente</button>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                            <th>Cidade</th>
+                            <th>Compras</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>João Silva</td>
+                            <td>joao@email.com</td>
+                            <td>(11) 98765-4321</td>
+                            <td>São Paulo - SP</td>
+                            <td>12</td>
+                            <td><button class="btn-action">Ver</button></td>
+                        </tr>
+                        <tr>
+                            <td>Maria Costa</td>
+                            <td>maria@email.com</td>
+                            <td>(21) 99876-5432</td>
+                            <td>Rio de Janeiro - RJ</td>
+                            <td>8</td>
+                            <td><button class="btn-action">Ver</button></td>
+                        </tr>
+                        <tr>
+                            <td>Pedro Santos</td>
+                            <td>pedro@email.com</td>
+                            <td>(31) 98765-4321</td>
+                            <td>Belo Horizonte - MG</td>
+                            <td>5</td>
+                            <td><button class="btn-action">Ver</button></td>
+                        </tr>
+                        <tr>
+                            <td>Ana Oliveira</td>
+                            <td>ana@email.com</td>
+                            <td>(61) 99876-5432</td>
+                            <td>Brasília - DF</td>
+                            <td>15</td>
+                            <td><button class="btn-action">Ver</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Funcionários Section -->
+            <section id="funcionarios" class="content-section">
+                <div class="section-header">
+                    <h2>Equipe de Funcionários</h2>
+                    <button class="btn-primary">+ Novo Funcionário</button>
+                </div>
+                <div class="employee-grid">
+                    <div class="employee-card">
+                        <div class="employee-header">
+                            <h3>Carlos Oliveira</h3>
+                            <span class="status-badge green">✅ Disponível</span>
+                        </div>
+                        <p><strong>Cargo:</strong> Entregador</p>
+                        <p><strong>Região:</strong> São Paulo - SP</p>
+                        <p><strong>Telefone:</strong> (11) 98765-4321</p>
+                        <p><strong>Entregas Hoje:</strong> 3</p>
+                    </div>
+                    <div class="employee-card">
+                        <div class="employee-header">
+                            <h3>Felipe Souza</h3>
+                            <span class="status-badge yellow">🔄 Em Rota</span>
+                        </div>
+                        <p><strong>Cargo:</strong> Entregador</p>
+                        <p><strong>Região:</strong> Rio de Janeiro - RJ</p>
+                        <p><strong>Telefone:</strong> (21) 99876-5432</p>
+                        <p><strong>Entregas Hoje:</strong> 5</p>
+                    </div>
+                    <div class="employee-card">
+                        <div class="employee-header">
+                            <h3>Ricardo Costa</h3>
+                            <span class="status-badge green">✅ Disponível</span>
+                        </div>
+                        <p><strong>Cargo:</strong> Entregador</p>
+                        <p><strong>Região:</strong> Belo Horizonte - MG</p>
+                        <p><strong>Telefone:</strong> (31) 98765-4321</p>
+                        <p><strong>Entregas Hoje:</strong> 2</p>
+                    </div>
+                    <div class="employee-card">
+                        <div class="employee-header">
+                            <h3>João Pereira</h3>
+                            <span class="status-badge green">✅ Disponível</span>
+                        </div>
+                        <p><strong>Cargo:</strong> Entregador</p>
+                        <p><strong>Região:</strong> Brasília - DF</p>
+                        <p><strong>Telefone:</strong> (61) 99876-5432</p>
+                        <p><strong>Entregas Hoje:</strong> 1</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pronta Entrega Section -->
+            <section id="pronta-entrega" class="content-section">
+                <div class="section-header">
+                    <h2>Produtos Pronta Entrega</h2>
+                    <button class="btn-primary">+ Agendar Entrega</button>
+                </div>
+                <div class="delivery-grid">
+                    <div class="delivery-card">
+                        <div class="delivery-location">📍 São Paulo - SP</div>
+                        <div class="delivery-content">
+                            <h3>Notebook Dell</h3>
+                            <p><strong>Quantidade:</strong> 12 unidades</p>
+                            <p><strong>Valor:</strong> R$ 60.000,00</p>
+                            <p><strong>Funcionário:</strong> Carlos Oliveira ✅</p>
+                            <button class="btn-small">Agendar</button>
+                        </div>
+                    </div>
+                    <div class="delivery-card">
+                        <div class="delivery-location">📍 Rio de Janeiro - RJ</div>
+                        <div class="delivery-content">
+                            <h3>Mouse Logitech</h3>
+                            <p><strong>Quantidade:</strong> 25 unidades</p>
+                            <p><strong>Valor:</strong> R$ 1.750,00</p>
+                            <p><strong>Funcionário:</strong> Felipe Souza 🔄</p>
+                            <button class="btn-small">Agendar</button>
+                        </div>
+                    </div>
+                    <div class="delivery-card">
+                        <div class="delivery-location">📍 Belo Horizonte - MG</div>
+                        <div class="delivery-content">
+                            <h3>Teclado Mecânico</h3>
+                            <p><strong>Quantidade:</strong> 18 unidades</p>
+                            <p><strong>Valor:</strong> R$ 8.100,00</p>
+                            <p><strong>Funcionário:</strong> Ricardo Costa ✅</p>
+                            <button class="btn-small">Agendar</button>
+                        </div>
+                    </div>
+                    <div class="delivery-card">
+                        <div class="delivery-location">📍 Brasília - DF</div>
+                        <div class="delivery-content">
+                            <h3>Monitor LG 24"</h3>
+                            <p><strong>Quantidade:</strong> 8 unidades</p>
+                            <p><strong>Valor:</strong> R$ 5.600,00</p>
+                            <p><strong>Funcionário:</strong> João Pereira ✅</p>
+                            <button class="btn-small">Agendar</button>
+                        </div>
+                    </div>
+                    <div class="delivery-card">
+                        <div class="delivery-location">📍 São Paulo - SP</div>
+                        <div class="delivery-content">
+                            <h3>Webcam HD</h3>
+                            <p><strong>Quantidade:</strong> 15 unidades</p>
+                            <p><strong>Valor:</strong> R$ 2.250,00</p>
+                            <p><strong>Funcionário:</strong> Carlos Oliveira ✅</p>
+                            <button class="btn-small">Agendar</button>
+                        </div>
+                    </div>
+                    <div class="delivery-card">
+                        <div class="delivery-location">📍 Rio de Janeiro - RJ</div>
+                        <div class="delivery-content">
+                            <h3>Headset Gamer</h3>
+                            <p><strong>Quantidade:</strong> 9 unidades</p>
+                            <p><strong>Valor:</strong> R$ 1.800,00</p>
+                            <p><strong>Funcionário:</strong> Felipe Souza 🔄</p>
+                            <button class="btn-small">Agendar</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
