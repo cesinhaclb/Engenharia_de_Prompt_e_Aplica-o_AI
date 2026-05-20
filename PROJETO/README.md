@@ -129,6 +129,12 @@ python -m http.server 8000
 - 🖥️ Desktop Full Experience
 
 ---
+## 📂 Ferramentas
+ - Copilot 
+ - chatgpt
+ - cloud
+
+ ---
 
 ## ⌨️ Atalhos de Teclado
 
