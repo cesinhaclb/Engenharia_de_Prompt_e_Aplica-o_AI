@@ -215,7 +215,7 @@ Este projeto é de código aberto e pode ser utilizado livremente.
 
 ````
 
-## NOMES DO GRUPO
+## Colaborção
 
 **Cesar Moreira da Silva Filho** https://github.com/cesinhaclb
 
