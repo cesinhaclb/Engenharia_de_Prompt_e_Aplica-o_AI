@@ -214,3 +214,9 @@ Este projeto é de código aberto e pode ser utilizado livremente.
 - **Autor:** cesinhaclb
 
 ````
+
+## NOMES DO GRUPO
+
+**Cesar Moreira da Silva Filho** https://github.com/cesinhaclb
+
+**Arthur Nascimento Alves** https://github.com/alvezx77
