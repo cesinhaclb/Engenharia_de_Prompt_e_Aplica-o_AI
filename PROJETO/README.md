@@ -133,6 +133,9 @@ python -m http.server 8000
  - Copilot 
  - chatgpt
  - cloud
+ - Google Germini
+
+ Usamos essas 4 ferramentas para a criação do nosso site.
 
  ---
 
